@@ -4,9 +4,7 @@ def sum_multiples(limit)
   counter = 0
 
   until (counter == limit) do
-    if (counter % 5 == 0 || counter % 3 == 0)
-      sum += counter
-    end
+    sum += counter if (counter % 5 == 0 || counter % 3 == 0)
     counter += 1
   end
   sum
