@@ -11,7 +11,7 @@ function binarySearch(list, item) {
   var mid;
 
   while(start <= end) {
-    mid = (start + end) / 2;
+    mid = (start + end) / 2 | 0;
 
     if (sorted[mid] < item) {
       start = mid + 1;
@@ -24,6 +24,6 @@ function binarySearch(list, item) {
   return -1;
 }
 
-var myNums = [30, 2, 1, 9, 15];
-console.log(binarySearch(myNums, 2));
+var myNums = [30, 2, 1, 9, 15, 16, 33, 12, 6];
+console.log(binarySearch(myNums, 12));
 
