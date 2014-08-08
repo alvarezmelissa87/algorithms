@@ -6,5 +6,5 @@ function factorial(number) {
   return result;
 }
 
-factorial(10)
-factorial(2)
+console.log(factorial(10) === 3628800) // should return true
+console.log(factorial(2) === 2) // should return true
