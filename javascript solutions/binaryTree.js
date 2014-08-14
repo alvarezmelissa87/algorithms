@@ -55,7 +55,23 @@ BinarySearchTree.prototype = {
       this.preOrder(node.left);
       this.preOrder(node.right);
     }
-  }
+  },
+
+  postOrder: function(node) {
+    if (!(node === null)) {
+      this.postOrder(node.left);
+      this.postOrder(node.right);
+      console.log(node.show() + " ");
+    }
+  },
+
+  getMin: function() {
+    var current = this.root;
+    while (!(current.left === null)) {
+      current = current.left;
+    }
+    return current.data;
+  },
 }
 
 
@@ -70,4 +86,9 @@ nums.insert(99);
 nums.insert(22);
 console.log("Inorder traversal: ");
 nums.inOrder(nums.root);
+console.log("next line");
 nums.preOrder(nums.root);
+console.log("next line");
+nums.postOrder(nums.root);
+console.log("next line");
+console.log(nums.getMin());
