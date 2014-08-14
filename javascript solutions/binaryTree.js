@@ -79,6 +79,22 @@ BinarySearchTree.prototype = {
       current = current.right;
     }
     return current.data;
+  },
+
+  find: function(data) {
+    var current = this.root;
+    while (data != current.data && current.left != null && current.right != null) {
+      if (data > current.data) {
+        current = current.right;
+      } else {
+        current = current.left;
+      }
+    }
+    if (current.data === data) {
+      return current;
+    } else {
+      return "-1";
+    }
   }
 }
 
@@ -102,3 +118,6 @@ console.log("next line");
 console.log(nums.getMin());
 console.log("next line");
 console.log(nums.getMax());
+console.log(nums.find(22));
+console.log(nums.find(99));
+console.log(nums.find(12));
