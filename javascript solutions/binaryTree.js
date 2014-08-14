@@ -1,3 +1,5 @@
+//Binary Search Tree implementation
+
 function Node(data, left, right) {
   this.data = data;
   this.left = left;
@@ -6,4 +8,40 @@ function Node(data, left, right) {
 
 Node.prototype.show = function() {
   return this.data;
+}
+
+function BinarySearchTree() {
+  this.root = null;
+}
+
+BinarySearchTree.prototype = {
+  insert: function(data) {
+    var node = new Node(data, null, null);
+    if (this.root === null) {    // if the BST root is null then we can set the node as the root.
+      this.root = node;
+    } else {                   // if root is already set
+      var current = this.root;  // set current to root of tree
+      var parent;
+      while (true) {
+        parent = current;        //parent equals the root for now
+        if (data < current.data) {   // if the data is less than the root data set current to current's left
+          current = current.left;   // check if left child is empty/null if it is we set it to the node
+          if (current === null) {   // passed in and break the loop
+            parent.left = node;
+            break;
+          }
+        } else {                        //if the data is greater than the root data we set current to
+          current = current.right;     // current.right (right child)
+          if (current === null) {     // we check if the right child is empty/null and if it is
+            parent.right = node;      // we set the node as the right child of the parent (prev current)
+            break;                    // and break the loop
+          }
+        }
+      }
+    }
+  },
+
+  inOrder: function() {
+
+  }
 }
