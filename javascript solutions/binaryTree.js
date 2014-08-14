@@ -121,3 +121,5 @@ console.log(nums.getMax());
 console.log(nums.find(22));
 console.log(nums.find(99));
 console.log(nums.find(12));
+console.log(nums.find(23));
+
