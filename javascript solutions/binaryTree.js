@@ -72,6 +72,14 @@ BinarySearchTree.prototype = {
     }
     return current.data;
   },
+
+  getMax: function() {
+    var current = this.root;
+    while (!(current.right === null)) {
+      current = current.right;
+    }
+    return current.data;
+  }
 }
 
 
@@ -92,3 +100,5 @@ console.log("next line");
 nums.postOrder(nums.root);
 console.log("next line");
 console.log(nums.getMin());
+console.log("next line");
+console.log(nums.getMax());
