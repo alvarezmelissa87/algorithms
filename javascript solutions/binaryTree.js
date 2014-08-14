@@ -11,7 +11,7 @@ Node.prototype.show = function() {
 }
 
 function BinarySearchTree() {
-  this.root = null;
+  this.root = null;              //set the root of the tree as null as a starting point
 }
 
 BinarySearchTree.prototype = {
@@ -41,7 +41,24 @@ BinarySearchTree.prototype = {
     }
   },
 
-  inOrder: function() {
-
+  inOrder: function(node) {
+    if (!(node === null)) {
+      inOrder(node.left);
+      putstr(node.show() + " ");
+      inOrder(node.right);
+    }
   }
 }
+
+
+
+var nums = new BinarySearchTree();
+nums.insert(23);
+nums.insert(45);
+nums.insert(16);
+nums.insert(37);
+nums.insert(3);
+nums.insert(99);
+nums.insert(22);
+console.log("Inorder traversal: ");
+nums.inOrder(nums.root);
