@@ -43,9 +43,17 @@ BinarySearchTree.prototype = {
 
   inOrder: function(node) {
     if (!(node === null)) {
-      inOrder(node.left);
-      putstr(node.show() + " ");
-      inOrder(node.right);
+      this.inOrder(node.left);
+      console.log(node.show() + " ");
+      this.inOrder(node.right);
+    }
+  },
+
+  preOrder: function(node) {
+    if(!(node === null)) {
+      console.log(node.show()) + " ");
+      preOrder(node.left);
+      preOrder(node.right);
     }
   }
 }
