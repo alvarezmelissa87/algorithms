@@ -95,9 +95,52 @@ BinarySearchTree.prototype = {
     } else {
       return "-1";
     }
+  },
+
+  remove: function(data) {
+     var root = this.removeNode(this.root, data);
+  },
+
+  removeNode: function(node, data) {
+    if (node === null) {
+      return null;
+    }
+    if (data === node.data) {
+      //node has no children
+      if (node.left === null & node.right === null) {
+        return null;
+      }
+      //node has no left child
+      if (node.left === null) {
+        return node.right;
+      }
+      //node has no right child
+      if (node.right === null) {
+        return node.left;
+      }
+      //node has two children
+      var tempNode = getSmallest(node.right);
+      node.data = tempNode.data;
+      node.right = this.removeNode(node.right, tempNode.data);
+      return node;
+    } else if (data < node.data) {
+      node.left = this.removeNode(node.left, data);
+      return node;
+    } else {
+      node.right = this.removeNode(node.right, data);
+      return node;
+    }
   }
 }
 
+/*
+         (23)
+         /  \
+     (16)    (45)
+     / \      / \
+  (3)  (22)(37) (99)
+
+*/
 
 
 var nums = new BinarySearchTree();
@@ -108,18 +151,29 @@ nums.insert(37);
 nums.insert(3);
 nums.insert(99);
 nums.insert(22);
-console.log("Inorder traversal: ");
-nums.inOrder(nums.root);
-console.log("next line");
-nums.preOrder(nums.root);
-console.log("next line");
-nums.postOrder(nums.root);
-console.log("next line");
-console.log(nums.getMin());
-console.log("next line");
-console.log(nums.getMax());
+// console.log("Inorder traversal: ");
+// nums.inOrder(nums.root);
+// console.log("next line");
+// nums.preOrder(nums.root);
+// console.log("next line");
+// nums.postOrder(nums.root);
+// console.log("next line");
+// console.log(nums.getMin());
+// console.log("next line");
+// console.log(nums.getMax());
 console.log(nums.find(22));
 console.log(nums.find(99));
-console.log(nums.find(12));
 console.log(nums.find(23));
+console.log(nums.find(23));
+
+/*
+         (23)
+         /  \
+     (16)    (45)
+     / \      / \
+  (3)  (22)(37) (99)
+
+*/
+
+
 
