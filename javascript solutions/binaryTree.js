@@ -51,9 +51,9 @@ BinarySearchTree.prototype = {
 
   preOrder: function(node) {
     if(!(node === null)) {
-      console.log(node.show()) + " ");
-      preOrder(node.left);
-      preOrder(node.right);
+      console.log(node.show() + " ");
+      this.preOrder(node.left);
+      this.preOrder(node.right);
     }
   }
 }
@@ -70,3 +70,4 @@ nums.insert(99);
 nums.insert(22);
 console.log("Inorder traversal: ");
 nums.inOrder(nums.root);
+nums.preOrder(nums.root);
