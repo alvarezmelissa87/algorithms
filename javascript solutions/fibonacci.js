@@ -1,21 +1,4 @@
-// class Sequences
 
-//   def fib_sequence(limit)
-//     base = [1, 2]
-//     while (base.last < limit)
-//       next_num = base[-1] + base[-2]
-//       base << next_num
-//     end
-//     base.pop
-//     base
-//   end
-
-//   def get_sum_evens(sequence)
-//     evens = sequence.keep_if {|num| num % 2 == 0 }
-//     evens.inject(:+)
-//   end
-
-// end
 
 var fibSequence = function(limit) {
   var base = [1, 2];
@@ -35,7 +18,10 @@ var getSumEvens = function(sequence) {
       result.push(sequence[i]);
     }
   }
-// [0,1,2,3,4].reduce(function(previousValue, currentValue, index, array){
-//   return previousValue + currentValue;
-// });
+
+  result = result.reduce(function(previousValue, currentValue, index, array){
+    return previousValue + currentValue;
+  });
+
+  return result;
 }
