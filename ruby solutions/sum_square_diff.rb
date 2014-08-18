@@ -9,3 +9,18 @@
 
 # Find the difference between the sum of the squares of the first one hundred
 # natural numbers and the square of the sum.
+
+# should return the sum of the squares of the first 100 numbers
+def sum_squares(num)
+
+end
+
+# should return the square of the sum of the first 100 numbers
+def square_of_sum(num)
+
+end
+
+# should return the difference between sum_squares and square_of_sum
+def diff_sum_square(num, other_num)
+
+end
