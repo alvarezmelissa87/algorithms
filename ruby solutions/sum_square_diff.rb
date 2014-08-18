@@ -12,7 +12,11 @@
 
 # should return the sum of the squares of the first 100 numbers
 def sum_squares(num)
-
+  if num == 1
+    1
+  else
+    num**2 + sum_squares(num - 1)
+  end
 end
 
 # should return the square of the sum of the first 100 numbers
@@ -24,3 +28,5 @@ end
 def diff_sum_square(num, other_num)
 
 end
+
+puts sum_squares(10)
