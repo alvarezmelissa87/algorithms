@@ -21,7 +21,13 @@ end
 
 # should return the square of the sum of the first 100 numbers
 def square_of_sum(num)
-
+  total = 0
+  until (num < 1) do
+    puts num
+    total += num
+    num -= 1
+  end
+  total**2
 end
 
 # should return the difference between sum_squares and square_of_sum
@@ -29,4 +35,5 @@ def diff_sum_square(num, other_num)
 
 end
 
-puts sum_squares(10)
+puts (sum_squares(10) == 385) # should return true
+puts square_of_sum(10) # should return true
