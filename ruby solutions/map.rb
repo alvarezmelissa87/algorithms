@@ -15,3 +15,15 @@ end
 #     last value handled by the block, it is returned automatically.
 # 4. Yield outputs the value returned by the block and rewrites the value in the array.
 # 5. This continues for each element in the array.
+
+
+
+# Another way - calling it as a proc
+
+class Array
+  def map!(&code)                     # We are passing an ampersand argument called &code- this is our block
+    self.each_with_index do |n, i|
+      self[i] = code.call(n)          # Here we send call method to our block of code.
+    end
+  end
+end
