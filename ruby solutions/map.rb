@@ -63,6 +63,16 @@ list = [1, 2, 3, 4]
 list.map!(lambda {|n| n ** 2})
 p list #=> [1, 4, 9, 16]
 
+# Now with Method Objects
+
+def square(n)   # Here we have a method that would work for the task at hand - we can reuse it as a
+  n ** 2        # parameter by converting it into a Method object and passing it to our map! method.
+end             # New object type will be Method
+
+arr = [1, 2, 3, 4]
+arr.map!(method(:square))
+p arr # => [1, 4, 9, 16]
+
 
 
 
