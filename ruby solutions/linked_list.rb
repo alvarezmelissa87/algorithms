@@ -48,14 +48,41 @@ class List
   # boundary cases- removal of head or tail
   def remove(target)
     @head = @head.next if @head == target
-    prev = find() do |item|
+    prev = find() do |item|    # prev set to the node right before the node we want to remove
       item.next == target
     end
-    prev.next = prev.next.next if prev
-  end
+    prev.next = prev.next.next if prev # set the node before's pointer to the target node's next thereby bypassing
+  end                                  # the node you want to remove
 end
 
 
+
+class CircularList  #same except for tail points to head
+  attr_accessor :head
+  include Enumerable
+
+  def each()  #iterating is similar except we terminate when next is the head again instead of nil
+    item = @head
+    while(item)
+      yield item
+      item = item.next
+      break if item == @head
+    end
+  end
+
+  def insert(data)
+    new_node = Node.new(data)
+    if !@head
+      new_node.next = new_node
+      @head = new_node
+    else
+      new_node.next = @head.next
+      @head.next = new_node
+      @head.data, new_node.data = new_node.data, @head.data
+    end
+  end
+
+end
 
 
 
