@@ -73,7 +73,7 @@ class CircularList  #same except for tail points to head
   def insert(data)
     new_node = Node.new(data)
     if !@head
-      new_node.next = new_node
+      new_node.next = new_node # if there's no head and this is set as head must point to itself
       @head = new_node
     else
       new_node.next = @head.next
