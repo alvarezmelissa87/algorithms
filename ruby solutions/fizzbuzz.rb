@@ -17,3 +17,9 @@ def fizzbuzz(a, b, n)
     end
   end
 end
+
+my_array.each do |element|
+  args = element.strip.split(' ')
+   fizzbuzz(args[0], args[1], args[2])
+   puts "\n"
+end
