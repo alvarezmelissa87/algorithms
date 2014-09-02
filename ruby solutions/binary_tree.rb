@@ -14,7 +14,7 @@ class BinarySearchTree
     @root = TreeNode.new(val, nil, nil)
   end
 
-  def insert(val)
+  def insert(value)
     puts "Inserting :" + value.to_S
     current_node = @root
     while current_node != nil
@@ -31,4 +31,17 @@ class BinarySearchTree
       end
     end
   end
+
+  #Depth-first
+  #Pre-order[edit]
+    # Visit the root.
+    # Traverse the left subtree.
+    # Traverse the right subtree.
+  def preorder_traversal(node=@root)
+    return if (node == nil)
+    preorder_traversal(node.left)
+    preorder_traversal(node.right)
+    puts node.value.to_S
+  end
+
 end
