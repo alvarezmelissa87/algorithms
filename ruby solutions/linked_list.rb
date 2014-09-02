@@ -14,7 +14,7 @@ class List
   include Enumerable
   attr_accessor :head
 
-  def each()
+  def each
     item = @head
     while (item)
       yield item
