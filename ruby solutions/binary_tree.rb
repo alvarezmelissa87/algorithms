@@ -10,12 +10,12 @@ end
 
 class BinarySearchTree
   def initialize(val)
-    puts "Initializing with: " + val.to_S
+    puts "Initializing with: " + val.to_s
     @root = TreeNode.new(val, nil, nil)
   end
 
   def insert(value)
-    puts "Inserting :" + value.to_S
+    puts "Inserting :" + value.to_s
     current_node = @root
     while current_node != nil
       if value < current_node.value && current_node.left == nil
@@ -41,7 +41,7 @@ class BinarySearchTree
     return if (node == nil)
     preorder_traversal(node.left)
     preorder_traversal(node.right)
-    puts node.value.to_S
+    puts node.value.to_s
   end
 
   # Post-order[edit]
@@ -67,7 +67,20 @@ class BinarySearchTree
   end
 end
 
+tree = BinarySearchTree.new(10)
+tree.insert(11)
+tree.insert(9)
+tree.insert(5)
+tree.insert(7)
+tree.insert(18)
+tree.insert(17)
 
+puts "In-order traversal: "
+tree.inorder_traversal
+puts "Pre-order traversal: "
+tree.preorder_traversal
+puts "Post-order traversal: "
+tree.postorder_traversal
 
 
 
